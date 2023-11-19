@@ -1,0 +1,49 @@
+import torch
+import torchvision.transforms.functional as TF
+from PIL import Image
+import matplotlib.pyplot as plt
+
+# 读取 A.png 和 B.png
+image_a = Image.open('A.jpg')
+image_b = Image.open('B.jpg')
+#以下代码负责将A B不同尺度图片对比显示出来
+# 转换为 PyTorch tensor
+image_tensor_a = TF.to_tensor(image_a)
+image_tensor_b = TF.to_tensor(image_b)
+
+# 定义不同的 downsampling 操作，从 128x128 开始，每次降采样一半
+downsampling = [torch.nn.AvgPool2d(2**i) for i in range(7) if 2**i <= 256]
+
+# 创建子图
+
+
+# 对每个图片进行降采样，并在子图中显示结果
+for downsample_op in downsampling:
+    # 对图片 A 进行降采样，并显示结果
+    fig, axs = plt.subplots(1, 2)
+    downsampled_tensor_a = downsample_op(image_tensor_a.unsqueeze(0)).squeeze(0)
+    downsampled_image_a = TF.to_pil_image(downsampled_tensor_a)
+    axs[0].imshow(downsampled_image_a)
+    
+    # 对图片 B 进行降采样，并显示结果
+    downsampled_tensor_b = downsample_op(image_tensor_b.unsqueeze(0)).squeeze(0)
+    downsampled_image_b = TF.to_pil_image(downsampled_tensor_b)
+    axs[1].imshow(downsampled_image_b)
+    plt.save
+plt.close(fig)
+#代码负责选三张图像保存作为示例
+import random
+from PIL import Image
+dataset = MultiFocusDataset('/mnt/workspace/downloads/147292/multi_focus')
+
+# 随机选择一份数据
+index = random.randint(0, len(dataset) - 1)
+a_image, b_image, image = dataset[index]
+
+# 将三张图像保存到指定的文件夹中
+a_image_path = f'./{index}_a.jpg'
+b_image_path = f'./{index}_b.jpg'
+image_path = f'./{index}_image.jpg'
+Image.save(a_image, a_image_path)
+Image.save(b_image, b_image_path)
+Image.save(image, image_path)

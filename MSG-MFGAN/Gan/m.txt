@@ -1,0 +1,18 @@
+# import os
+# from PIL import Image
+# path = "F:\dataset\multi_focus"  # 替换为实际路径
+
+# count = 0  # 计数器
+
+# for root, dirs, files in os.walk(path):
+#     for file in files:
+#         if file.endswith(".jpg"):  # 只处理jpg文件
+#             img_path = os.path.join(root, file)
+#             with Image.open(img_path) as img:
+#                 width, height = img.size
+#                 if width < 256 or height < 256:
+#                     count += 1
+#                     os.remove(img_path)  # 删除图片
+                    
+
+# print(f"Found {count} images with size smaller than (256, 256)")

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{76556773-bdba-4eab-aabe-ea04a7ba6889}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile />
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>Global|ContinuumAnalytics|Anaconda38-64</InterpreterId>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="Arch\A.jpg" />
+    <Content Include="Arch\arch-left.png" />
+    <Content Include="Arch\arch-right.png" />
+    <Content Include="Arch\B.jpg" />
+    <Content Include="Arch\image.jpg" />
+    <Content Include="Arch\MSG.jpg" />
+    <Content Include="Arch\multi-scale image show.TXT" />
+    <Content Include="Arch\m\16-8.jpg" />
+    <Content Include="Arch\m\256-128.jpg" />
+    <Content Include="Arch\m\4.jpg" />
+    <Content Include="Arch\m\64-32.jpg" />
+    <Content Include="Gan\新建文本文档.TXT" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="data_loader\data_loader.py" />
+    <Compile Include="Gan\GeneralArc.py" />
+    <Compile Include="Gan\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Arch" />
+    <Folder Include="Arch\m" />
+    <Folder Include="data_loader" />
+    <Folder Include="Gan" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda38-64" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
